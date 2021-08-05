@@ -1,0 +1,21 @@
+import firebase from 'firebase';
+
+const firebaseConfig = {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
+};
+
+const app = !firebase.apps.length 
+    ? firebase.initializeApp(firebaseConfig) 
+    : firebase.app();
+
+const db = firebase.firestore();
+const auth = app.auth();
+const GoogleProvider = new firebase.auth.GoogleAuthProvider();
+const UserPassProvider = new firebase.auth.EmailAuthProvider();
+
+export { app, db, auth, GoogleProvider, UserPassProvider };
